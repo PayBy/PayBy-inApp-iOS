@@ -1,6 +1,6 @@
 # PayBy-inApp-iOS
 
-PayBy Payment Gateway integration SDK for android with In-app pay scenes
+PayBy Payment Gateway integration SDK for ios with In-app pay scenes
 ## 术语说明
 - deviceId：用于区分不同设备的唯一标识
 - partnerId：商户申请支付服务时候被分配的商户id，用以区分不同商户
