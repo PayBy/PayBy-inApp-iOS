@@ -21,11 +21,12 @@ PayBy Payment Gateway integration SDK for android with In-app pay scenes
 保存并执行 pod install,然后用后缀为.xcworkspace 的文件打开工程。
 
 [3] 在 Xcode 中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type“添加“URL scheme”为你所注册的应用程序 id（如下图所示）。
-![Image text](http://gitlab.test2pay.com/client/ios/components/InAppPayment/blob/dev/1591697884928.jpg)
+![Image text](https://github.com/PayBy/PayBy-inApp-IOS/blob/master/1591697884928.jpg) 
+
 Xcode 设置 URL scheme
 
 [4] 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在 “info”标签栏的“LSApplicationQueriesSchemes“添加payby （如下图所示）。
-![Image text](http://gitlab.test2pay.com/client/ios/components/InAppPayment/blob/dev/1591696719298.jpg)
+![Image text](https://github.com/PayBy/PayBy-inApp-IOS/blob/master/1591696719298.jpg)
 [5] 在你需要使 用PayBy终端 API 的文件中  #import <SLDPayByPayment/SLDPayByPayment.h>
 .h 头文件。
 ```
