@@ -8,7 +8,7 @@ PayBy Payment Gateway integration SDK for ios with In-app pay scenes
 - token：包含订单信息的token
 - Sign：通过对deviceId、partnerId、appId、token拼接而成的签名字符串加密生成。拼接字符串规则如下所示：String signString ="iapAppId="+appId+ "&iapDeviceId=" + deviceId+ "&iapPartnerId=" + partnerId+"&token=" + token ;signString的加密规则可见demo
 ## 适用版本
-使用 Xcode 10 及以上版本可以使用新版 Push SDK，ios 10.0以上版本
+使用 Xcode 10 及以上版本可以使用新版 SLDPayByPayment SDK，ios 10.0以上版本
 ## 集成方式 
 ### Cocoapods集成
 
@@ -51,12 +51,46 @@ Xcode 设置 URL scheme
   在使用类中调用
 ```
 [SDLPayByPaymentInterface requestInApp:token Sign:sign PageOnViewContorller:self success:^(id  _Nonnull result) {
-            ;
+            ;//H5支付结果直接返回 
         } fail:^(NSError * _Nonnull error) {
-            ;
+            ;//订单创建失败 错误信息 error.userInfo[@"errorInfo"]
         }];
 ```
+  APP支付结果监控
+ ios 12以下监控代码 
+   在项目AppDelegate添加代理监控
+ ```
+ - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    
+    NSURLComponents *components = [[NSURLComponents alloc] initWithString:url.absoluteString];
+    for(NSURLQueryItem *info in components.queryItems){
+        if([info.name isEqualToString:@"result"]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"resultInfo" object:@{@"result":info.value}];
+        }
+    }
+    return YES;
+    
+}
 
+ ```
+ ios13 以上  在项目SceneDelegate添加代理监控
+ ```
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts API_AVAILABLE(ios(13.0)){
+    
+    for (UIOpenURLContext *obj in URLContexts) {
+        NSURL *tempUrl = obj.URL;
+        if([tempUrl.absoluteString hasPrefix:@"payby"]){
+           NSURLComponents *components = [[NSURLComponents alloc] initWithString:tempUrl.absoluteString];
+           for(NSURLQueryItem *info in components.queryItems){
+               if([info.name isEqualToString:@"result"]){
+                   [[NSNotificationCenter defaultCenter] postNotificationName:@"resultInfo" object:@{@"result":info.value}];
+               }
+           }
+            break;;
+        }
+    }
+}
+ ```
 获取支付结果    result
 #### 支付结果码说明
 - SUCCESS: 收款方收款成功，该订单的整个支付流程结束
