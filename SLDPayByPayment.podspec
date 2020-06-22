@@ -37,8 +37,8 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
-  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  #spec.license      = "MIT (example)"
+   spec.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,8 +89,8 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "SLDPayByPayment", "SLDPayByPayment/Headers/*.{h,m}"
-  spec.vendored_frameworks = 'SLDPayByPayment/SLDPayByPayment.framework'
+  spec.source_files  = "SLDPayByPayment", "SLDPayByPayment/Headers/*.{h}"
+  #spec.vendored_frameworks = 'SLDPayByPayment/SLDPayByPayment.framework'
   #spec.exclude_files = "Classes/Exclude"
 
    spec.public_header_files = "SLDPayByPayment/SLDPayByPayment.framework/Headers/*.h"
@@ -105,7 +105,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-   spec.resources = "SLDPayByPayment/SDLPayByPayment.bundle/*"
+   spec.resources = "SLDPayByPayment/SDLPayByPayment.bundle"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
