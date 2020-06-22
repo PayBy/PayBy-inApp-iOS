@@ -1,0 +1,6 @@
+framework module SLDPayByPayment {
+  umbrella header "SLDPayByPayment.h"
+
+  export *
+  module * { export * }
+}
