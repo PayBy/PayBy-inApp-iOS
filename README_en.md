@@ -92,9 +92,9 @@ Get The Payment Result
     }
 }
  ```
-Payment Result Code Description
-SUCCESS: the payee has received the payment successfully, and the entire payment process for the order is completed.
-FAIL: payment failed.
-PAID: the payer paid successfully. Wait for the payee to receive the payment, at the same time, you can also query and track the payment status of the order by order NO.
-PAYING: processing. Wait for the payment process to complete and return the final payment result.
+#### Payment Result Code Description
+- SUCCESS: the payee has received the payment successfully, and the entire payment process for the order is completed.
+- FAIL: payment failed.
+- PAID: the payer paid successfully. Wait for the payee to receive the payment, at the same time, you can also query and track the payment status of the order by order NO.
+- PAYING: processing. Wait for the payment process to complete and return the final payment result.
 
