@@ -65,7 +65,8 @@ Xcode 设置 URL scheme
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:url.absoluteString];
     for(NSURLQueryItem *info in components.queryItems){
         if([info.name isEqualToString:@"result"]){
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"resultInfo" object:@{@"result":info.value}];
+            NSLog(@"result = %@",info.value);
+                              break;
         }
     }
     return YES;
@@ -83,7 +84,8 @@ Xcode 设置 URL scheme
            NSURLComponents *components = [[NSURLComponents alloc] initWithString:tempUrl.absoluteString];
            for(NSURLQueryItem *info in components.queryItems){
                if([info.name isEqualToString:@"result"]){
-                   [[NSNotificationCenter defaultCenter] postNotificationName:@"resultInfo" object:@{@"result":info.value}];
+                   NSLog(@"result = %@",info.value);
+                              break;
                }
            }
             break;;
