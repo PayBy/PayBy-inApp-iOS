@@ -2,7 +2,7 @@
 
 PayBy Payment Gateway integration SDK for ios with In-app pay scenes
 ## Term Definition
-- deviceId：every device has its own unique deviceId. UAT环境[联调] 固定：deviceId123
+- deviceId：every device has its own unique deviceId. UAT environment [joint debugging] fixed: deviceId123
 - partnerId：every merchant is assigned a partnerId while applying for the payment service
 - appId：every app of a merchant is assigned an appId while applying for the payment service
 - token：it contains order information
@@ -16,7 +16,6 @@ Use Xcode 10 and above to use the new version of SLDPayByPayment SDK, ios 10.0 a
 [2]  To integrate SLDPayByPayment into your Xcode project using CocoaPods, specify it in your Podfile：
 ```
   pod ‘SLDPayByPayment'
-
 ```
 Save and execute pod install, then open the project with a file with the suffix .xcworkspace.
 
@@ -43,6 +42,8 @@ Save and execute pod install, then open the project with a file with the suffix 
 #### Initialize SDK (required)
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  //Setting up the development environment
+   [SDLPayByPaymentInterface paymentEnvironment:SDLPaymentEnvironmentTest];
    [SDLPayByPaymentInterface initInApp:appId partnerId:partnerId];
     return YES;
 }
@@ -50,7 +51,7 @@ Save and execute pod install, then open the project with a file with the suffix 
 ```
   Call methods in your class
 ```
-[SDLPayByPaymentInterface requestInApp:token Sign:sign PageOnViewContorller:self success:^(id  _Nonnull result) {
+[SDLPayByPaymentInterface requestInApp:token DeviceId:deviceId Sign:sign PageOnViewContorller:self success:^(id  _Nonnull result) {
             ;//H5 payment results directly returned
         } fail:^(NSError * _Nonnull error) {
             ;//Order creation failed Error message. error.userInfo[@"errorInfo"]

@@ -43,6 +43,8 @@ Xcode 设置 URL scheme
 #### 初始化SDK（必须）
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	//Setting up the development environment
+  [SDLPayByPaymentInterface paymentEnvironment:SDLPaymentEnvironmentTest]
    [SDLPayByPaymentInterface initInApp:appId partnerId:partnerId];
     return YES;
 }
@@ -50,7 +52,7 @@ Xcode 设置 URL scheme
 ```
   在使用类中调用
 ```
-[SDLPayByPaymentInterface requestInApp:token Sign:sign PageOnViewContorller:self success:^(id  _Nonnull result) {
+[SDLPayByPaymentInterface requestInApp:token DeviceId:deviceId Sign:sign PageOnViewContorller:self success:^(id  _Nonnull result) {
             ;//H5支付结果直接返回 
         } fail:^(NSError * _Nonnull error) {
             ;//订单创建失败 错误信息 error.userInfo[@"errorInfo"]
