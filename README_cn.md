@@ -13,6 +13,7 @@ PayBy Payment Gateway integration SDK for ios with In-app pay scenes
 ### Cocoapods集成
 
 [1] 在 XCode 中建立你的工程。
+
 [2]  在工程的 Podfile 里面添加以下代码：
 ```
   pod ‘SLDPayByPayment'

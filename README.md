@@ -13,6 +13,7 @@ Use Xcode 10 and above to use the new version of SLDPayByPayment SDK, ios 10.0 a
 ### Installation with CocoaPods
 
 [1] Build your project in XCode.
+
 [2]  To integrate SLDPayByPayment into your Xcode project using CocoaPods, specify it in your Podfile：
 ```
   pod ‘SLDPayByPayment'
