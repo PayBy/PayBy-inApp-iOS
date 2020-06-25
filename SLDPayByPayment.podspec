@@ -90,7 +90,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "SLDPayByPayment", "SLDPayByPayment/SLDPayByPayment.framework/Headers/*.{h}"
-  #spec.vendored_frameworks = 'SLDPayByPayment/SLDPayByPayment.framework'
+  spec.vendored_frameworks = 'SLDPayByPayment/SLDPayByPayment.framework'
   #spec.exclude_files = "Classes/Exclude"
 
    spec.public_header_files = "SLDPayByPayment/SLDPayByPayment.framework/Headers/*.h"
