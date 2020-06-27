@@ -16,7 +16,7 @@ PayBy Payment Gateway integration SDK for ios with In-app pay scenes
 
 [2]  在工程的 Podfile 里面添加以下代码：
 ```
-  pod ‘SLDPayByPayment'
+  pod 'SLDPayByPayment'
 
 ```
 保存并执行 pod install,然后用后缀为.xcworkspace 的文件打开工程。

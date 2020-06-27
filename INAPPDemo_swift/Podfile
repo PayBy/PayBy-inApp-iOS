@@ -1,0 +1,13 @@
+platform :ios, '10.0'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+# ignore warnings from a specific pod
+# pod 'FBSDKCoreKit', :inhibit_warnings => true
+
+target 'INAPPDemo_swift' do
+pod  'SLDPayByPayment'
+
+
+end
