@@ -50,6 +50,10 @@ Save and execute pod install, then open the project with a file with the suffix 
 }
 
 ```
+  SDLPaymentEnvironment Description：
+  SDLPaymentEnvironmentDev:the environment for developing and testing
+  SDLPaymentEnvironmentTest:the environment for customer debuging
+  SDLPaymentEnvironmentRelease:the environment for product online
   Call methods in your class
 ```
 [SDLPayByPaymentInterface requestInApp:token DeviceId:deviceId Sign:sign PageOnViewContorller:self success:^(id  _Nonnull result) {
