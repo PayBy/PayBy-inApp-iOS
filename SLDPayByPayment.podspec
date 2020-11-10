@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SLDPayByPayment"
-  spec.version      = "1.0.4"
+  spec.version      = "1.0.5"
   spec.summary      = "PayBy Payment Gateway integration SDK for ios with In-app pay scenes"
 
   # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = "PayBy Payment Gateway integration SDK for ios with In-app pay scenes"
+  spec.description  = "ios sdk, PayBy Payment Gateway integration SDK for ios with In-app pay scenes"
 
   spec.homepage     = "https://github.com/PayBy/PayBy-inApp-iOS"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -51,7 +51,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "bing" => "bing.feng@payby.com" }
+  spec.author             = { "xinyuma" => "xinyu.ma@payby.com" }
   # Or just: spec.author    = "fengbing"
   # spec.authors            = { "fengbing" => "fengbing@g42pay.com" }
   # spec.social_media_url   = "https://twitter.com/fengbing"
