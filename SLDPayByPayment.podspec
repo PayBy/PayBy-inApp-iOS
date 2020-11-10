@@ -15,16 +15,16 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "SLDPayByPayment"
-  spec.version      = "1.0.5"
-  spec.summary      = "PayBy Payment Gateway integration SDK for ios with In-app pay scenes"
+  spec.name         = "PXRPPayByPayment"
+  spec.version      = "1.0.6"
+  spec.summary      = "PXRPPayBy Payment Gateway integration SDK for ios with In-app pay scenes"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = "ios sdk, PayBy Payment Gateway integration SDK for ios with In-app pay scenes"
+  spec.description  = "ios sdk,PXRP PayBy Payment Gateway integration SDK for ios with In-app pay scenes"
 
   spec.homepage     = "https://github.com/PayBy/PayBy-inApp-iOS"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
