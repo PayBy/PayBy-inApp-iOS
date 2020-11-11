@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "PXRPPayByPayment"
-  spec.version      = "1.1.2"
+  spec.version      = "1.1.3"
   spec.summary      = "PXRPPayBy Payment Gateway integration SDK for ios with In-app pay scenes"
 
   # This description is used to generate tags and improve search results.
@@ -130,7 +130,7 @@ Pod::Spec.new do |spec|
   #  you can include multiple dependencies to ensure it works.
 
   # spec.requires_arc = true
-
+    spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
 
