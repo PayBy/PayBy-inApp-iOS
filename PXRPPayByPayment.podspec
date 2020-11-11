@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "PXRPPayByPayment"
-  spec.version      = "1.0.8"
+  spec.version      = "1.1.1"
   spec.summary      = "PXRPPayBy Payment Gateway integration SDK for ios with In-app pay scenes"
 
   # This description is used to generate tags and improve search results.
