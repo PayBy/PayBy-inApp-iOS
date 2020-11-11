@@ -1,9 +1,9 @@
 //
 //  SLDPayByPayment.h
 //  SLDPayByPayment
-//  v1.0.2
-//  Created by mxy on 2020/5/29.
-//  Copyright © 2020 mxy. All rights reserved.
+//
+//  Created by ice on 2020/5/29.
+//  Copyright © 2020 ice. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

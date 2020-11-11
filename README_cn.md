@@ -16,10 +16,11 @@ PayBy Payment Gateway integration SDK for ios with In-app pay scenes
 
 [2]  在工程的 Podfile 里面添加以下代码：
 ```
-  pod 'SLDPayByPayment'
+  pod 'PXRPPayByPayment'
 
 ```
 保存并执行 pod install,然后用后缀为.xcworkspace 的文件打开工程。
+注意：如果您现在正在使用`SLDPayByPayment`，请用`PXRPPayByPayment`替换它，运行pod安装进行安装，然后新的`SLDPayByPayment.framework`将被集成到您的项目中。 `SLDPayByPayment` pod不再被维护。
 
 [3] 在 Xcode 中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type“添加“URL scheme”为你所注册的应用程序 “payby”+id（如下图所示）。
 ![Image text](https://github.com/PayBy/PayBy-inApp-IOS/blob/master/1591697884928.jpg) 
@@ -28,8 +29,8 @@ Xcode 设置 URL scheme
 
 [4] 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在 “info”标签栏的“LSApplicationQueriesSchemes“添加payby （如下图所示）。
 ![Image text](https://github.com/PayBy/PayBy-inApp-IOS/blob/master/1591696719298.jpg)
-[5] 在你需要使 用PayBy终端 API 的文件中  #import <SLDPayByPayment/SLDPayByPayment.h>
-.h 头文件。
+
+[5] 在你需要使 用PayBy终端 API 的文件中  #import <SLDPayByPayment/SLDPayByPayment.h>.h 头文件。
 ```
 #import <UIKit/UIKit.h>
 #import <SLDPayByPayment/SLDPayByPayment.h>
@@ -44,7 +45,7 @@ Xcode 设置 URL scheme
 #### 初始化SDK（必须）
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	//Setting up the development environment
+    //Setting up the development environment
   [SDLPayByPaymentInterface paymentEnvironment:SDLPaymentEnvironmentTest]
    [SDLPayByPaymentInterface initInApp:appId partnerId:partnerId];
     return YES;
@@ -102,4 +103,5 @@ Xcode 设置 URL scheme
 - FAIL：支付失败
 - PAID：付款方付款成功。等待收款方收款，同时也可通过接口查询跟踪订单支付状态。
 - PAYING：正在处理中。等待支付流程完成，返回最终支付结果。
+
 

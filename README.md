@@ -16,19 +16,18 @@ Use Xcode 10 and above to use the new version of SLDPayByPayment SDK, ios 10.0 a
 
 [2]  To integrate SLDPayByPayment into your Xcode project using CocoaPods, specify it in your Podfile：
 ```
-  pod 'SLDPayByPayment'
+  pod 'PXRPPayByPayment'
 ```
 Save and execute pod install, then open the project with a file with the suffix .xcworkspace.
+Note: If you are using `SLDPayByPayment` now, Please replace it with `PXRPPayByPayment`,  run `pod install` to install, and then the new `SLDPayByPayment.framework` will be integrated into you project. `SLDPayByPayment` pod don't been maintained any more.
 
 [3] In Xcode, select your project settings, select the "TARGETS" column, and add "URL scheme" to the "URL type" in the "info" tab bar for your registered application "payby" + id (As shown).
 ![Image text](https://github.com/PayBy/PayBy-inApp-IOS/blob/master/1591697884928.jpg) 
 
-
-
 [4] In Xcode, select your project settings, select the "TARGETS" column, and add payby to "LSApplicationQueriesSchemes" in the "info" tab (As shown).
 ![Image text](https://github.com/PayBy/PayBy-inApp-IOS/blob/master/1591696719298.jpg)
-[5] In the file you need to use the PayBy terminal API #import <SLDPayByPayment/SLDPayByPayment.h>
-.h header file.
+
+[5] In the file you need to use the PayBy terminal API #import <SLDPayByPayment/SLDPayByPayment.h>.h header file.
 ```
 #import <UIKit/UIKit.h>
 #import <SLDPayByPayment/SLDPayByPayment.h>
@@ -104,4 +103,5 @@ Get The Payment Result
 - FAIL: payment failed.
 - PAID: the payer paid successfully. Wait for the payee to receive the payment, at the same time, you can also query and track the payment status of the order by order NO.
 - PAYING: processing. Wait for the payment process to complete and return the final payment result.
+
 
