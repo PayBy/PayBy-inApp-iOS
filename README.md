@@ -56,11 +56,21 @@ Note: If you are using `SLDPayByPayment` now, Please replace it with `PXRPPayByP
   
   Call methods in your class
 ```
-[SDLPayByPaymentInterface requestInApp:token DeviceId:deviceId Sign:sign PageOnViewContorller:self success:^(id  _Nonnull result) {
-            ;//H5 payment results directly returned
-        } fail:^(NSError * _Nonnull error) {
-            ;//Order creation failed Error message. error.userInfo[@"errorInfo"]
-        }];
+    [SDLPayByPaymentInterface payInAppWithViewContorller:self orderCallback:^(OrderSuccessCallback  _Nonnull orderSuccessCallback, OrderFailCallback  _Nonnull orderFailCallback) {
+        //get order token
+        NSString *token = [self getTokenMock];
+        if (token && token.length > 0) {
+            orderSuccessCallback(token,deviceId,sigin);
+        }else{
+            orderFailCallback();
+        }
+    } success:^(id  _Nonnull result) {
+        if([result isKindOfClass:[NSString class]]){
+            [self alertView:result];
+        }
+    } fail:^(NSError * _Nonnull error) {
+        [self alertView:error.userInfo[@"errorInfo"]];
+    }];
 ```
 Get The Payment Result
  AppDelegate adds proxy monitoring[below ios12]

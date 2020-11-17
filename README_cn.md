@@ -54,11 +54,21 @@ Xcode 设置 URL scheme
 ```
   在使用类中调用
 ```
-[SDLPayByPaymentInterface requestInApp:token DeviceId:deviceId Sign:sign PageOnViewContorller:self success:^(id  _Nonnull result) {
-            ;//H5支付结果直接返回 
-        } fail:^(NSError * _Nonnull error) {
-            ;//订单创建失败 错误信息 error.userInfo[@"errorInfo"]
-        }];
+[SDLPayByPaymentInterface payInAppWithViewContorller:self orderCallback:^(OrderSuccessCallback  _Nonnull orderSuccessCallback, OrderFailCallback  _Nonnull orderFailCallback) {
+    //get order token
+    NSString *token = [self getTokenMock];
+    if (token && token.length > 0) {
+        orderSuccessCallback(token,deviceId,sigin);
+    }else{
+        orderFailCallback();
+    }
+} success:^(id  _Nonnull result) {
+    if([result isKindOfClass:[NSString class]]){
+        [self alertView:result];
+    }
+} fail:^(NSError * _Nonnull error) {
+    [self alertView:error.userInfo[@"errorInfo"]];
+}];
 ```
   APP支付结果监控
  ios 12以下监控代码 
