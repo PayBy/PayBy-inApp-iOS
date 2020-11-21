@@ -21,7 +21,7 @@ Use Xcode 10 and above to use the new version of SLDPayByPayment SDK, ios 10.0 a
 Save and execute pod install, then open the project with a file with the suffix .xcworkspace.
 Note: If you are using `SLDPayByPayment` now, Please replace it with `PXRPPayByPayment`,  run `pod install` to install, and then the new `SLDPayByPayment.framework` will be integrated into you project. `SLDPayByPayment` pod doesn't been maintained any more.
 
-[3] In Xcode, select your project settings, select the "TARGETS" column, and add "URL scheme" to the "URL type" in the "info" tab bar for your registered application "payby" + id (As shown).
+[3] In Xcode, select your project settings, select the "TARGETS" column, and add "URL scheme" to the "URL type" in the "info" tab bar for your registered application "payby" + iapAppId (As shown).
 ![Image text](https://github.com/PayBy/PayBy-inApp-IOS/blob/master/1591697884928.jpg) 
 
 [4] In Xcode, select your project settings, select the "TARGETS" column, and add payby to "LSApplicationQueriesSchemes" in the "info" tab (As shown).
