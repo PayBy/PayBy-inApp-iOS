@@ -48,7 +48,7 @@ payby://payment/open-iap-cashdesk?ft=xxx&iapAppId=xxx&iapPartnerId=xxx&iapSign=x
 
 ```Objective-C
 - (BOOL)isPayByURL:(NSURL *)url{
-    return (([url.scheme isEqualToString:@"payby"] && [url.host isEqualToString:@"payment"]) || ([url.scheme 		isEqualToString:@"https"] && [url.host isEqualToString:@"app.payby.com"])) && [url.path isEqualToString:@"/open-iap-cashdesk"];
+    return (([url.scheme isEqualToString:@"payby"] && [url.host isEqualToString:@"payment"]) || ([url.scheme isEqualToString:@"https"] && [url.host isEqualToString:@"app.payby.com"])) && [url.path isEqualToString:@"/open-iap-cashdesk"];
 }
 
 ```
