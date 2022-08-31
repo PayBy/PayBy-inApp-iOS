@@ -22,7 +22,7 @@ pod 'PXRPPayByPayment'
 Save and execute `pod install`, then open the project with a file with the suffix .xcworkspace.
 Note: If you are using `SLDPayByPayment` now, please replace it with `PXRPPayByPayment`, run `pod install` to install, and then the new `SLDPayByPayment.framework` will be integrated into you project. `SLDPayByPayment` pod doesn't been maintained any more.
 
-[3] In Xcode, select your project settings, select the "TARGETS" column, and add "URL cheme" to the "URL Types" in the "Info" tab bar for your registered application "payby" + iapAppId (As shown).
+[3] In Xcode, select your project settings, select the "TARGETS" column, and add "URL scheme" to the "URL Types" in the "Info" tab bar for your registered application "payby" + iapAppId (As shown).
 ![Image text](https://github.com/PayBy/PayBy-inApp-iOS/blob/master/1661319255013.jpg) 
 
 [4] In Xcode, select your project settings, select the "TARGETS" column, and change "Architectures" to "arm64" in the "Build Settings" tab (As shown).
@@ -68,7 +68,7 @@ SLDPayByPaymentEnvironment Description:<br>
 - SLDPayByPaymentEnvironmentUAT: The environment for customer debuging.<br>
 - SLDPayByPaymentEnvironmentRelease: The environment for product online.<br>
 
-Call methods in your class (Object-C)
+Call methods in your class (Objective-C)
 ```
 NSString *sign = [NSString stringWithFormat:@"iapAppId=%@&iapDeviceId=%@&iapPartnerId=%@&token=%@", self.appIdTextField.text, self.deviceIdTextField.text, self.partnerIdTextField.text, self.tokenTextField.text];
 [SLDPayByPaymentInterface paymentInViewController:self withToken:self.tokenTextField.text sign:[GPBRSA encryptString:sign privateKey:[GlobalDefines privateKey]] deviceId:self.deviceIdTextField.text resultCallback:^(NSString * _Nonnull result) {
