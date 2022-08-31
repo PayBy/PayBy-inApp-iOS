@@ -1,13 +1,27 @@
+source 'https://cdn.cocoapods.org/'
+# Uncomment the next line to define a global platform for your project
 platform :ios, '10.0'
-
-# ignore all warnings from all pods
 inhibit_all_warnings!
 
-# ignore warnings from a specific pod
-# pod 'FBSDKCoreKit', :inhibit_warnings => true
+target 'InAppDemo' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
 
-target 'INAPPDemo' do
-pod  'PXRPPayByPayment'
+  # Pods for InAppDemo
+  pod 'PXRPPayByPayment', :path => '../'
+  
+  pod 'Masonry'
+  pod 'SDWebImage', '~> 5.0'
+  pod 'AFNetworking'
+  pod 'MBProgressHUD', '1.1.0'
 
+  target 'InAppDemoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'InAppDemoUITests' do
+    # Pods for testing
+  end
 
 end

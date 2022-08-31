@@ -1,0 +1,6 @@
+framework module Hundun {
+  umbrella header "Hundun.h"
+
+  export *
+  module * { export * }
+}

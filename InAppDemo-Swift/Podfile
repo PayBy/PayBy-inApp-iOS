@@ -1,0 +1,27 @@
+source 'https://cdn.cocoapods.org/'
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+inhibit_all_warnings!
+
+target 'InAppDemo-Swift' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for InAppDemo-Swift
+  pod 'PXRPPayByPayment', :path => '../'
+  
+  pod 'Masonry'
+  pod 'SDWebImage', '~> 5.0'
+  pod 'AFNetworking'
+  pod 'MBProgressHUD', '1.1.0'
+  
+  target 'InAppDemo-SwiftTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'InAppDemo-SwiftUITests' do
+    # Pods for testing
+  end
+
+end

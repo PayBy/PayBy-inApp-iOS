@@ -16,15 +16,15 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "PXRPPayByPayment"
-  spec.version      = "1.3.0"
-  spec.summary      = "PXRPPayBy Payment Gateway integration SDK for ios with In-app pay scenes"
+  spec.version      = "2.0.0"
+  spec.summary      = "PXRPPayByPayment Gateway integration SDK for iOS with In-App pay scenes"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = "ios sdk,PXRP PayBy Payment Gateway integration SDK for ios with In-app pay scenes"
+  spec.description  = "iOS SDK, PXRPPayByPayment Gateway integration SDK for iOS with In-App pay scenes"
 
   spec.homepage     = "https://github.com/PayBy/PayBy-inApp-iOS"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -38,7 +38,7 @@ Pod::Spec.new do |spec|
   #
 
   #spec.license      = "MIT (example)"
-   spec.license      = { :type => "MIT", :file => "LICENSE" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -51,7 +51,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "xinyuma" => "xinyu.ma@payby.com" }
+  spec.author        = { "lengchuanxin" => "chuanxin.leng@payby.com" }
   # Or just: spec.author    = "fengbing"
   # spec.authors            = { "fengbing" => "fengbing@g42pay.com" }
   # spec.social_media_url   = "https://twitter.com/fengbing"
@@ -62,8 +62,8 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-   #spec.platform     = :ios
-   spec.platform     = :ios, "9.0"
+  #spec.platform     = :ios
+  spec.platform     = :ios, "10.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -90,10 +90,10 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "SLDPayByPayment", "SLDPayByPayment/SLDPayByPayment.framework/Headers/*.{h}"
-  spec.vendored_frameworks = 'SLDPayByPayment/SLDPayByPayment.framework'
+  spec.vendored_frameworks = 'SLDPayByPayment/SLDPayByPayment.framework', 'SLDPayByPayment/Hundun.framework'
   #spec.exclude_files = "Classes/Exclude"
 
-   spec.public_header_files = "SLDPayByPayment/SLDPayByPayment.framework/Headers/*.h"
+  spec.public_header_files = "SLDPayByPayment/SLDPayByPayment.framework/Headers/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -105,7 +105,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-   spec.resources = "SLDPayByPayment/SDLPayByPayment.bundle"
+  # spec.resources = "SLDPayByPayment/SDLPayByPayment.bundle"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -117,7 +117,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.framework  = "SomeFramework"
-   spec.frameworks = "UIKit", "Foundation"
+  spec.frameworks = "UIKit", "Foundation"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
@@ -130,8 +130,10 @@ Pod::Spec.new do |spec|
   #  you can include multiple dependencies to ensure it works.
 
   # spec.requires_arc = true
-    spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
+  spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
+  spec.dependency "Masonry"
+  spec.dependency "Countly"
 
 end

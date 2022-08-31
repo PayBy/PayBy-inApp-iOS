@@ -1,18 +1,17 @@
 //
-//  INAPPDemoUITests.m
-//  INAPPDemoUITests
+//  InAppDemoUITests.m
+//  InAppDemoUITests
 //
-//  Created by ice on 2020/6/23.
-//  Copyright © 2020 ice. All rights reserved.
+//  Created by lengchuanxin on 2022/8/23.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface INAPPDemoUITests : XCTestCase
+@interface InAppDemoUITests : XCTestCase
 
 @end
 
-@implementation INAPPDemoUITests
+@implementation InAppDemoUITests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -37,9 +36,9 @@
 }
 
 - (void)testLaunchPerformance {
-    if (@available(macOS 10.15, iOS 13.0, tvOS 13.0, *)) {
+    if (@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *)) {
         // This measures how long it takes to launch your application.
-        [self measureWithMetrics:@[XCTOSSignpostMetric.applicationLaunchMetric] block:^{
+        [self measureWithMetrics:@[[[XCTApplicationLaunchMetric alloc] init]] block:^{
             [[[XCUIApplication alloc] init] launch];
         }];
     }

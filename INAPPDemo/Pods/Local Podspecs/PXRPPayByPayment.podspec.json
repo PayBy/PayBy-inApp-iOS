@@ -1,0 +1,45 @@
+{
+  "name": "PXRPPayByPayment",
+  "version": "2.0.0",
+  "summary": "PXRPPayByPayment Gateway integration SDK for iOS with In-App pay scenes",
+  "description": "iOS SDK, PXRPPayByPayment Gateway integration SDK for iOS with In-App pay scenes",
+  "homepage": "https://github.com/PayBy/PayBy-inApp-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lengchuanxin": "chuanxin.leng@payby.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/PayBy/PayBy-inApp-iOS.git",
+    "tag": "2.0.0"
+  },
+  "source_files": [
+    "SLDPayByPayment",
+    "SLDPayByPayment/SLDPayByPayment.framework/Headers/*.{h}"
+  ],
+  "vendored_frameworks": [
+    "SLDPayByPayment/SLDPayByPayment.framework",
+    "SLDPayByPayment/Hundun.framework"
+  ],
+  "public_header_files": "SLDPayByPayment/SLDPayByPayment.framework/Headers/*.h",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64"
+  },
+  "dependencies": {
+    "Masonry": [
+
+    ],
+    "Countly": [
+
+    ]
+  }
+}

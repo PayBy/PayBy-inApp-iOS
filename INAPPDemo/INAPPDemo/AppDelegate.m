@@ -1,61 +1,54 @@
 //
 //  AppDelegate.m
-//  INAPPDemo
+//  PayByPaymentDemo
 //
-//  Created by ice on 2020/6/23.
-//  Copyright © 2020 ice. All rights reserved.
+//  Created by lengchuanxin on 2022/8/1.
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "GPBRSA.h"
+#import "SettingViewController.h"
+#import "CustomNavigationController.h"
+#import "GlobalDefines.h"
 #import <SLDPayByPayment/SLDPayByPayment.h>
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-      [SDLPayByPaymentInterface initInApp:@"20200510000000121" partnerId:@"200000046800"];
-    if (@available(ios 13, *)) {
-           } else {
-               self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-               self.window.backgroundColor = [UIColor whiteColor];
-               self.window.rootViewController = [[ViewController alloc]init];
-           }
-    return YES;
-}
-
-
-#pragma mark - UISceneSession lifecycle
-
-
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
-}
-
-
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-}
-
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    [SLDPayByPaymentInterface setLogEnabled:YES];
     
-    NSURLComponents *components = [[NSURLComponents alloc] initWithString:url.absoluteString];
-    for(NSURLQueryItem *info in components.queryItems){
-        if([info.name isEqualToString:@"result"]){
-            //NSLog(@"result = %@",info.value);
-            break;
-        }
+//    [SLDPayByPaymentInterface setLanguage:SLDPayByPaymentLanguageEn];
+//    [SLDPayByPaymentInterface setUserInterfaceStyle:SLDPayByPaymentUserInterfaceStyleDark];
+//    SLDPayByPaymentConfig *config = [SLDPayByPaymentConfig new];
+//    config.paymentMethodMenuColor = [SLDPayByPaymentColor colorWithLightColor:[UIColor redColor] darkColor:[UIColor greenColor]];
+//    config.paymentMethodTextColor = [SLDPayByPaymentColor colorWithLightColor:[UIColor whiteColor] darkColor:[UIColor blackColor]];
+//    config.primaryColor = [SLDPayByPaymentColor colorWithLightColor:[UIColor blueColor] darkColor:[UIColor blueColor]];
+//    config.appPayUseQrCode = NO;
+//    config.useDefaultResultPage = YES;
+//    [SLDPayByPaymentInterface updateConfig:config];
+    
+    [SettingViewController initSetting];
+    
+    SLDPayByPaymentEnvironment environment = SLDPayByPaymentEnvironmentDevelop;
+    if ([[GlobalDefines environment] isEqualToString:@"UAT"]) {
+        environment = SLDPayByPaymentEnvironmentUAT;
+    } else if ([[GlobalDefines environment] isEqualToString:@"REL"]) {
+        environment = SLDPayByPaymentEnvironmentRelease;
     }
-    return YES;
+    [SLDPayByPaymentInterface initWithAppId:[GlobalDefines appId] partnerId:[GlobalDefines partnerId] environment:environment];
     
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[CustomNavigationController alloc] init];
+    [self.window makeKeyAndVisible];
+    return YES;
 }
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    return [SLDPayByPaymentInterface handleOpenURL:url];
+}
+
 @end

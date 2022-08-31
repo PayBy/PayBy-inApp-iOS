@@ -1,9 +1,8 @@
 //
 //  main.m
-//  INAPPDemo
+//  PayByPaymentDemo
 //
-//  Created by ice on 2020/6/23.
-//  Copyright © 2020 ice. All rights reserved.
+//  Created by lengchuanxin on 2022/8/1.
 //
 
 #import <UIKit/UIKit.h>
