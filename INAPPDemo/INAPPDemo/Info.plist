@@ -14,6 +14,26 @@
 				<string>payby20210502000000391</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>payby_uat</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>payby20200510000000121</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>payby_rel</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>payby20200520000000031</string>
+			</array>
+		</dict>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
