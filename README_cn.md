@@ -16,6 +16,9 @@ PayBy为iOS应用内支付场景提供的支付网关集成SDK
 
 [2] 在工程的 Podfile 里面添加以下代码：
 ```
+# 必须添加此源
+source 'https://github.com/PayBy/CocoaPodsSpecs.git' 
+
 pod 'PXRPPayByPayment'
 ```
 保存并执行 `pod install`，然后用后缀为.xcworkspace 的文件打开工程。
