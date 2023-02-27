@@ -7,8 +7,10 @@ PayBy为iOS应用内支付场景提供的支付网关集成SDK
 - appId: 商户申请支付服务时候被分配的appId，用以区分商户下不同APP
 - token: 包含订单信息的token，商户下单时收到的响应
 - sign: 通过对deviceId、partnerId、appId、token拼接而成的签名字符串加密生成。拼接字符串规则如下所示：String signString = "iapAppId="+appId+"&iapDeviceId="+deviceId+"&iapPartnerId="+partnerId+"&token="+token；signString的加密规则可见demo
+
 ## 适用版本
 使用Xcode 10及以上版本可以使用新版SLDPayByPayment SDK，iOS 10.0以上版本
+
 ## 集成方式 
 ### Cocoapods集成
 
@@ -98,4 +100,85 @@ SLDPayByPaymentInterface.payment(in: self, withToken: token, sign: GPBRSA.encryp
 - SUCCESS: 收款方收款成功，该订单的整个支付流程结束
 - FAIL: 支付失败
 - PAYING: 正在处理中。等待支付流程完成，返回最终支付结果。
+- CANCEL: 取消支付，用户点击关闭按钮后收到的回调状态
+
+## 1.x.x版本迁移2.x.x版本指南
+
+[1] 在工程的 Podfile 里面添加以下代码：
+```
+# 必须添加此源
+source 'https://github.com/PayBy/CocoaPodsSpecs.git' 
+
+pod 'PXRPPayByPayment'
+```
+[2] 请使用SLDPayByPaymentInterface替代SDLPayByPaymentInterface
+
+[3] 初始化SDK，请使用以下代码
+```
+#import "AppDelegate.h"
+#import <SLDPayByPayment/SLDPayByPayment.h>
+
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    [SLDPayByPaymentInterface setLogEnabled:YES];
+    
+//    [SLDPayByPaymentInterface setLanguage:SLDPayByPaymentLanguageEn];
+//    [SLDPayByPaymentInterface setUserInterfaceStyle:SLDPayByPaymentUserInterfaceStyleDark];
+//    SLDPayByPaymentConfig *config = [SLDPayByPaymentConfig defaultConfig];
+//    config.paymentMethodMenuColor = [SLDPayByPaymentColor colorWithLightColor:[UIColor redColor] darkColor:[UIColor greenColor]];
+//    config.paymentMethodTextColor = [SLDPayByPaymentColor colorWithLightColor:[UIColor whiteColor] darkColor:[UIColor blackColor]];
+//    config.primaryColor = [SLDPayByPaymentColor colorWithLightColor:[UIColor blueColor] darkColor:[UIColor blueColor]];
+//    config.appPayUseQrCode = NO;
+//    config.useDefaultResultPage = YES;
+//    [SLDPayByPaymentInterface updateConfig:config];
+
+    [SLDPayByPaymentInterface initWithAppId:{appId} partnerId:{partnerId} environment:SLDPayByPaymentEnvironmentDevelop];
+
+    ...
+
+    return YES;
+}
+
+@end
+```
+替换代码
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //Setting up the development environment
+    [SDLPayByPaymentInterface paymentEnvironment:SDLPaymentEnvironmentTest]
+    [SDLPayByPaymentInterface initInApp:appId partnerId:partnerId];
+    return YES;
+}
+```
+[4] 在使用类中调用，请使用以下代码
+```
+NSString *sign = [NSString stringWithFormat:@"iapAppId=%@&iapDeviceId=%@&iapPartnerId=%@&token=%@", self.appIdTextField.text, self.deviceIdTextField.text, self.partnerIdTextField.text, self.tokenTextField.text];
+[SLDPayByPaymentInterface paymentInViewController:self withToken:self.tokenTextField.text sign:[GPBRSA encryptString:sign privateKey:[GlobalDefines privateKey]] deviceId:self.deviceIdTextField.text resultCallback:^(NSString * _Nonnull result) {
+    NSLog(@"resultCallback: %@", result);
+    if ([SLDPayByPaymentConfig defaultConfig].useDefaultResultPage == NO) {
+        [self showAlertWithMessage:result];
+    }
+}];
+```
+替换代码
+```
+[SDLPayByPaymentInterface payInAppWithViewContorller:self orderCallback:^(OrderSuccessCallback  _Nonnull orderSuccessCallback, OrderFailCallback  _Nonnull orderFailCallback) {
+    //get order token
+    NSString *token = [self getTokenMock];
+    if (token && token.length > 0) {
+        orderSuccessCallback(token,deviceId,sigin);
+    }else{
+        orderFailCallback();
+    }
+} success:^(id  _Nonnull result) {
+    if([result isKindOfClass:[NSString class]]){
+        [self alertView:result];
+    }
+} fail:^(NSError * _Nonnull error) {
+    [self alertView:error.userInfo[@"errorInfo"]];
+}];
+```
+
 
