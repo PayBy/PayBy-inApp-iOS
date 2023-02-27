@@ -67,6 +67,16 @@
         if ([SLDPayByPaymentConfig defaultConfig].useDefaultResultPage == NO) {
             [self showAlertWithMessage:result];
         }
+        
+        if ([result isEqualToString:SLDPayByPaymentResultSuccess]) {
+            // Do something
+        } else if ([result isEqualToString:SLDPayByPaymentResultFail]) {
+            // Do something
+        } else if ([result isEqualToString:SLDPayByPaymentResultPaying]) {
+            // Do something
+        } else if ([result isEqualToString:SLDPayByPaymentResultCancel]) {
+            // Do something
+        }
     }];
 }
 

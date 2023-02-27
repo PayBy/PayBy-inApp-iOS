@@ -61,6 +61,16 @@ class ViewController: UIViewController {
             if SLDPayByPaymentConfig.default().useDefaultResultPage == false {
                 self?.showAlert(with: result)
             }
+            
+            if result == SLDPayByPaymentResultSuccess {
+                // Do something
+            } else if result == SLDPayByPaymentResultFail {
+                // Do something
+            } else if result == SLDPayByPaymentResultPaying {
+                // Do something
+            } else if result == SLDPayByPaymentResultCancel {
+                // Do something
+            }
         }
     }
     

@@ -50,7 +50,13 @@ typedef NS_ENUM(NSInteger, SLDPayByPaymentUserInterfaceStyle) {
 
 FOUNDATION_EXPORT NSNotificationName const SLDPayByPaymentResultNotificationName;
 
-typedef void(^SLDPayByPaymentResultCallback)(NSString *result);
+typedef NSString * SLDPayByPaymentResult;
+FOUNDATION_EXPORT SLDPayByPaymentResult const SLDPayByPaymentResultSuccess;
+FOUNDATION_EXPORT SLDPayByPaymentResult const SLDPayByPaymentResultFail;
+FOUNDATION_EXPORT SLDPayByPaymentResult const SLDPayByPaymentResultPaying;
+FOUNDATION_EXPORT SLDPayByPaymentResult const SLDPayByPaymentResultCancel;
+
+typedef void(^SLDPayByPaymentResultCallback)(SLDPayByPaymentResult result);
 
 @interface SLDPayByPaymentInterface : NSObject
 
@@ -96,5 +102,7 @@ typedef void(^SLDPayByPaymentResultCallback)(NSString *result);
 + (BOOL)handleOpenURL:(NSURL *)url;
 
 @end
+
+typedef SLDPayByPaymentInterface SDLPayByPaymentInterface; // Compatibility with older versions
 
 NS_ASSUME_NONNULL_END

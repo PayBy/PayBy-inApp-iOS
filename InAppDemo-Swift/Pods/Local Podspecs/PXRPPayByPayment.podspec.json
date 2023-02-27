@@ -1,6 +1,6 @@
 {
   "name": "PXRPPayByPayment",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "summary": "PXRPPayByPayment Gateway integration SDK for iOS with In-App pay scenes",
   "description": "iOS SDK, PXRPPayByPayment Gateway integration SDK for iOS with In-App pay scenes",
   "homepage": "https://github.com/PayBy/PayBy-inApp-iOS",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/PayBy/PayBy-inApp-iOS.git",
-    "tag": "2.0.0"
+    "tag": "2.0.1"
   },
   "source_files": [
     "SLDPayByPayment",

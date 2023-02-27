@@ -143,7 +143,7 @@ pod 'PXRPPayByPayment'
 
 @end
 ```
-替换代码
+替换下面的代码
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Setting up the development environment
@@ -162,7 +162,7 @@ NSString *sign = [NSString stringWithFormat:@"iapAppId=%@&iapDeviceId=%@&iapPart
     }
 }];
 ```
-替换代码
+替换下面的代码
 ```
 [SDLPayByPaymentInterface payInAppWithViewContorller:self orderCallback:^(OrderSuccessCallback  _Nonnull orderSuccessCallback, OrderFailCallback  _Nonnull orderFailCallback) {
     //get order token
